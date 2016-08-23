@@ -7,25 +7,34 @@ export default Ember.Component.extend({
     console.log(Yea);
     console.log(Nay);
     return {
-      labels: ["Yea", "Nay", "Fake"],
+      labels: ["Yea", "Nay"],
       datasets: [{
         label: "Number of Votes",
-        data: [Yea, Nay, 42],
-        backgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-            ],
-            hoverBackgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-            ]
-
-      }],
-      pieOptions: {
-        cutoutPercentage: 0
-      }
-    }
+        data: [Yea, Nay]
+      }]
+    };
+  }),
+  demData: Ember.computed('billData', function() {
+    var Yea = this.get('billData').breakdown.party.D.Yea;
+    var Nay = this.get('billData').breakdown.party.D.Nay;
+    return {
+      labels: ["Yea", "Nay"],
+      datasets: [{
+        label: "Number of Votes",
+        data: [Yea,Nay]
+      }]
+    };
+  }),
+  repData: Ember.computed('billData', function() {
+    var Yea = this.get('billData').breakdown.party.R.Yea;
+    var Nay = this.get('billData').breakdown.party.R.Nay;
+    return {
+      labels: ["Yea", "Nay"],
+      datasets: [{
+        label: "Number of Votes",
+        data: [Yea,Nay],
+        fillColor: ['red','blue']
+      }]
+    };
   })
 });

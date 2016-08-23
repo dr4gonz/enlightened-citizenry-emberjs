@@ -1,1 +1,12 @@
-{{ember-chart type='Bar' data=chartData options=pieOptions width=300 height=300}}
+<div class="col-md-12">
+  <h2>Total Vote Data: </h2>
+  {{ember-chart type='bar' data=chartData width=300 height=300}}
+</div>
+<div class="col-md-12">
+  <h2>Democrat Vote Data: </h2>
+  {{ember-chart type='bar' data=demData width=300 height=300}}
+</div>
+<div class="col-md-12">
+  <h2>Republican Vote Data: </h2>
+  {{ember-chart type='bar' data=repData width=300 height=300}}
+</div>
