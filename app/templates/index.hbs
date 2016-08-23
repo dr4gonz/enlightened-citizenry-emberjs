@@ -1,5 +1,5 @@
 <ul>
-  {{#each model as |bill|}}
-    <li>{{bill.official_title}}</li>
-  {{/each}}  
+  {{#each model.votes as |bill|}}
+    {{#link-to 'bill' bill.roll_id}}<li>{{bill.bill_id}}</li>{{/link-to}}
+  {{/each}}
 </ul>
